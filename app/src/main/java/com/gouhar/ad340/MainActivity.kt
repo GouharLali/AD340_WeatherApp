@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         if(zipcode.length !=5) {
             Toast.makeText(this,R.string.zipcode_entry_error, Toast.LENGTH_SHORT).show()
         }else{
-            forecastRepository.loadForecast(zipcode )
+            forecastRepository.loadForecast()
         }
     }
 

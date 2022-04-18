@@ -9,12 +9,12 @@ class ForecastRepository {
     private val _weeklyForecast = MutableLiveData<List<DailyForecast>>()
     val weeklyForecast: LiveData<List<DailyForecast>> = _weeklyForecast
 
-    fun loadForecast(zipcode: String) {
+    fun loadForecast() {
         val randomValues = List (10) { Random.nextFloat().rem(100) * 100 }
         val forecastItems = randomValues.map { temp ->
             DailyForecast(temp,getTempDescription(temp  ))
         }
-        _weeklyForecast.setValue(forecastItems)
+        _weeklyForecast.value = forecastItems
     }
 
     private fun getTempDescription(temp: Float): String {
