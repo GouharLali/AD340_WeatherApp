@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/forecastList"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -12,7 +11,7 @@
        android:id="@+id/title"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:text="Enter your Zipcode"
+       android:text="@string/enter_your_zipcode"
        android:textSize="@dimen/title_text_height"
        app:layout_constraintBottom_toTopOf="@+id/zipcodeEditText"
        app:layout_constraintEnd_toEndOf="@+id/zipcodeEditText"
@@ -27,13 +26,14 @@
        android:src="@drawable/ic_baseline_location_on_24"
        app:layout_constraintBottom_toTopOf="@+id/title"
        app:layout_constraintEnd_toEndOf="@+id/title"
-       app:layout_constraintStart_toStartOf="@+id/title" />
+       app:layout_constraintStart_toStartOf="@+id/title"
+       android:contentDescription="@string/todo" />
 
    <EditText
        android:id="@+id/zipcodeEditText"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:hint="Enter zipcode"
+       android:hint="@string/enter_zipcode"
        android:inputType="number"
        android:minHeight="48dp"
        app:layout_constraintBottom_toBottomOf="parent"
@@ -41,29 +41,33 @@
        app:layout_constraintHorizontal_bias="0.498"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toTopOf="parent"
-       app:layout_constraintVertical_bias="0.288" />
+       app:layout_constraintVertical_bias="0.288"
+       tools:ignore="TextContrastCheck"
+       android:autofillHints="" />
 
    <Button
        android:id="@+id/enterButton"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:text="SUBMINT ZIPCODE"
+       android:text="@string/submint_zipcode"
        app:layout_constraintEnd_toEndOf="@+id/zipcodeEditText"
        app:layout_constraintHorizontal_bias="0.491"
        app:layout_constraintStart_toStartOf="@+id/zipcodeEditText"
-       app:layout_constraintTop_toBottomOf="@+id/zipcodeEditText" />
+       app:layout_constraintTop_toBottomOf="@+id/zipcodeEditText"
+       tools:ignore="TextContrastCheck" />
 
    <androidx.recyclerview.widget.RecyclerView
+       android:id="@+id/forecastList"
        android:layout_width="0dp"
        android:layout_height="0dp"
        android:layout_marginStart="16dp"
        android:layout_marginTop="16dp"
        android:layout_marginEnd="16dp"
        android:background="#ABABAB"
+       app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@+id/enterButton" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

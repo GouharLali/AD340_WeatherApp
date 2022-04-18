@@ -1,10 +1,10 @@
 package com.gouhar.ad340
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,9 +15,11 @@ class MainActivity : AppCompatActivity() {
     private val forecastRepository = ForecastRepository()
 
 // Region Setup Methods
+    @SuppressLint("StringFormatInvalid")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
     val zipcodeEditText: EditText = findViewById(R.id.zipcodeEditText)
     val enterButton: Button = findViewById(R.id.enterButton)
@@ -34,10 +36,15 @@ class MainActivity : AppCompatActivity() {
 
     val forecastList: RecyclerView = findViewById(R.id.forecastList)
     forecastList.layoutManager = LinearLayoutManager(this)
+    val dailyForecastAdapter = DailyForecastAdapter() { forecastItem ->
+        val msg = getString(R.string.forecast_clicked_format, forecastItem.temp, forecastItem.description)
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+    }
+    forecastList.adapter = dailyForecastAdapter
 
     val weeklyForecastObserver = Observer<List<DailyForecast>> { forecastItems ->
         // Update out list adapter
-        Toast.makeText(this, "Loaded Items", Toast.LENGTH_SHORT).show()
+        dailyForecastAdapter.submitList(forecastItems)
     }
     forecastRepository.weeklyForecast.observe(this, weeklyForecastObserver)
     }
