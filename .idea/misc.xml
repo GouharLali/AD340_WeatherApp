@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout/activity_forecast_details.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_forecast_details_one.xml" value="0.11200807265388496" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_daily_forecast.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/setting_menu.xml" value="0.23125" />
       </map>
     </option>
   </component>
