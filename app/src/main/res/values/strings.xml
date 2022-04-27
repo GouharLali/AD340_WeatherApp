@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AD 340</string>
+    <string name="app_name">WeatherApp</string>
 
 
     <string name="zipcode_entry_error">Please enter valid zipcode</string>
@@ -12,4 +12,6 @@
     <string name="_70_0">70.0</string>
     <string name="party_cloudy">Party Cloudy</string>
     <string name="display_units">Display Units</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
